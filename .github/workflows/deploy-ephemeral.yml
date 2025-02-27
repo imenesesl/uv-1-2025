@@ -23,6 +23,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Display Preview URL
+        env:
+          PREVIEW_URL: ${{ needs.deploy.outputs.preview_url }}
         run: |
           echo "# 🚀 Preview Deployment" >> $GITHUB_STEP_SUMMARY
-          echo "Preview environment is ready at: ${{ needs.deploy.outputs.preview_url }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "🔗 [Open Preview]($PREVIEW_URL)" >> $GITHUB_STEP_SUMMARY

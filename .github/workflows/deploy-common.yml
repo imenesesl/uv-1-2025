@@ -39,14 +39,14 @@ on:
     outputs:
       preview_url:
         description: "Preview deployment URL"
-        value: "${{ jobs.deploy.outputs.preview_url }}"
+        value: ${{ jobs.deploy.outputs.details_url }}
 
 jobs:
   deploy:
     name: Deploy to Firebase ${{ inputs.environment }}
     runs-on: ubuntu-latest
     outputs:
-      preview_url: ${{ steps.deploy_firebase.outputs.details_url }}
+      details_url: ${{ steps.deploy_firebase.outputs.details_url }}
     
     steps:
       - name: Checkout repository
@@ -84,3 +84,8 @@ jobs:
           channelId: ${{ inputs.id }}
           target: ${{ inputs.target }}
           expires: ${{ inputs.expires }}
+
+      - name: Get Preview URL
+        id: get_url
+        run: |
+          echo "preview_url=${{ steps.deploy_firebase.outputs.details_url }}" >> $GITHUB_OUTPUT

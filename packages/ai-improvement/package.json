@@ -1,0 +1,28 @@
+{
+  "name": "@repo/ai-improvement",
+  "version": "1.0.0",
+  "private": true,
+  "keywords": [],
+  "author": "imenesesl",
+  "license": "ISC",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "build": "tsc",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "type-check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@repo/config": "*"
+  },
+  "dependencies": {
+    "openai": "^4.0.0"
+  }
+} 

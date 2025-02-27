@@ -1,0 +1,19 @@
+{
+  "name": "monorepo-root",
+  "private": true,
+  "scripts": {
+    "build": "turbo build",
+    "dev": "yarn workspace @repo/ai-improvement dev",
+    "lint": "turbo lint",
+    "lint:fix": "turbo lint:fix",
+    "type-check": "turbo type-check"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "turbo": "^2.4.2",
+    "dotenv": "^16.0.0"
+  },
+  "packageManager": "yarn@1.22.19"
+}

@@ -1,19 +1,18 @@
 import styles from './App.module.css';
 
-type MessageProps = {
-  text: string;
-};
+export default function App() {
+  const currentDate = new Date().toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+  });
 
-const Message = ({ text }: MessageProps) => {
-  return <h1>{text}</h1>;
-};
-
-const App = () => {
   return (
     <div className={styles.content}>
-      <Message text="Hi there!" />
+      <h1>Current Date</h1>
+      <p>{currentDate}</p>
     </div>
   );
-};
-
-export default App;
+}

@@ -12,4 +12,5 @@ jobs:
     with:
       environment: Production
       target: production
+      id: live
     secrets: inherit 

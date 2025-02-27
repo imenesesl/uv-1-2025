@@ -11,7 +11,7 @@ const Message = ({ text }: MessageProps) => {
 const App = () => {
   return (
     <div className={styles.content}>
-      <Message />
+      <Message text='Hi there!' />
     </div>
   );
 };

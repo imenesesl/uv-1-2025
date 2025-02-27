@@ -16,5 +16,4 @@ jobs:
       target: staging
       id: preview-${{ github.event.inputs.branch || github.ref_name }}
       expires: 1d
-      project_id: uv-1-2025
     secrets: inherit

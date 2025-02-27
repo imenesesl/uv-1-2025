@@ -15,10 +15,6 @@ on:
       expires:
         required: false
         type: string
-      project_id:
-        required: false
-        type: string
-        description: "Firebase project name"
     secrets:
       GPT_API_KEY:
         required: true
@@ -91,7 +87,4 @@ jobs:
       - name: Link to Preview
         if: inputs.environment == 'Ephemeral'
         run: |
-          echo "# 🚀 Preview Deployment" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          URL="${{ steps.deploy_firebase.outputs.details_url }}"
-          echo "🔗 [Open Preview](${URL/stg-***--/stg-${{ inputs.project_id }}--})" >> $GITHUB_STEP_SUMMARY
+          echo "${{ steps.deploy_firebase.outputs.details_url }}"

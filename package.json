@@ -10,7 +10,8 @@
     "format:fix": "turbo format:fix",
     "type-check": "turbo type-check",
     "prepare": "husky install",
-    "deploy:staging": "turbo deploy:staging"
+    "deploy:staging": "turbo deploy:staging",
+    "deploy:production": "turbo deploy:production"
   },
   "workspaces": [
     "packages/*"

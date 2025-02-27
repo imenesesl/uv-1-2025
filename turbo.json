@@ -32,8 +32,10 @@
       "outputs": []
     },
     "deploy:staging": {
-      "cache": false,
-      "persistent": true
+      "cache": false
+    },
+    "deploy:production": {
+      "cache": false
     }
   }
 }

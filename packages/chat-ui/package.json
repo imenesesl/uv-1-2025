@@ -12,7 +12,8 @@
     "lint:fix": "eslint --fix .",
     "preview": "rsbuild preview",
     "type-check": "tsc --noEmit",
-    "deploy:staging": "firebase deploy --only hosting"
+    "deploy:staging": "firebase deploy --only hosting:staging",
+    "deploy:production": "firebase deploy --only hosting:production"
   },
   "dependencies": {
     "react": "^19.0.0",

@@ -91,6 +91,7 @@ jobs:
       - name: Link to Preview
         if: inputs.environment == 'Ephemeral'
         run: |
-          echo "Full Deploy Output:"
+          echo "# 🚀 Preview Deployment" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
           URL="${{ steps.deploy_firebase.outputs.details_url }}"
-          echo "🔗 [Open Preview](${URL/stg-***--/stg-${{ inputs.project_id }}--})"
+          echo "🔗 [Open Preview](${URL/stg-***--/stg-${{ inputs.project_id }}--})" >> $GITHUB_STEP_SUMMARY

@@ -30,6 +30,10 @@
     },
     "type-check": {
       "outputs": []
+    },
+    "deploy:staging": {
+      "cache": false,
+      "persistent": true
     }
   }
 }

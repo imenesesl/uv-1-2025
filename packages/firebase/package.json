@@ -1,0 +1,15 @@
+{
+  "name": "@repo/firebase",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "imenesesl",
+  "license": "ISC"
+}

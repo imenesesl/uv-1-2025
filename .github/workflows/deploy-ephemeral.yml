@@ -1,0 +1,19 @@
+name: Deploy Ephemeral Environment
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to deploy (defaults to current)'
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    uses: ./.github/workflows/deploy-common.yml
+    with:
+      environment: Ephemeral
+      target: staging
+      id: preview-${{ github.event.inputs.branch || github.ref_name }}
+      expires: 1d
+    secrets: inherit

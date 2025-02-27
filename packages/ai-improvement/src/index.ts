@@ -13,10 +13,7 @@ async function main() {
     console.log('Original text:\n', inputText);
     console.log('\nImproving text...\n');
     
-    const result = await improveText(inputText, {
-      temperature: 0.7,
-      maxTokens: 2000
-    });
+    const result = await improveText(inputText);
     
     console.log('---RESULT_START---');
     console.log(JSON.stringify(result, null, 2));

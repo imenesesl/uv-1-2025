@@ -12,4 +12,5 @@ jobs:
     with:
       environment: Staging
       target: staging
+      id: live
     secrets: inherit 

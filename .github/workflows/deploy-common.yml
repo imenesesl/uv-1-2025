@@ -36,18 +36,11 @@ on:
         required: true
       FIREBASE_MEASUREMENT_ID:
         required: true
-    outputs:
-      preview_url:
-        description: "Preview deployment URL"
-        value: ${{ jobs.deploy.outputs.details_url }}
 
 jobs:
   deploy:
     name: Deploy to Firebase ${{ inputs.environment }}
     runs-on: ubuntu-latest
-    outputs:
-      details_url: ${{ steps.deploy_firebase.outputs.details_url }}
-    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -75,7 +68,6 @@ jobs:
           FIREBASE_MEASUREMENT_ID: ${{ secrets.FIREBASE_MEASUREMENT_ID }}
 
       - name: Deploy to Firebase
-        id: deploy_firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.PERSONAL_GITHUB_TOKEN }}'
@@ -84,8 +76,3 @@ jobs:
           channelId: ${{ inputs.id }}
           target: ${{ inputs.target }}
           expires: ${{ inputs.expires }}
-
-      - name: Get Preview URL
-        id: get_url
-        run: |
-          echo "preview_url=${{ steps.deploy_firebase.outputs.details_url }}" >> $GITHUB_OUTPUT

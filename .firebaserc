@@ -1,0 +1,18 @@
+{
+  "projects": {
+    "default": "uv-1-2025"
+  },
+  "targets": {
+    "uv-1-2025": {
+      "hosting": {
+        "production": [
+          "uv-1-2025"
+        ],
+        "staging": [
+          "stg-uv-1-2025"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

@@ -51,23 +51,51 @@ yarn lint:fix
 yarn type-check
 ```
 
-## 📁 Project Structure
+## 🚀 Deployment
 
-```
-├── packages/
-│   ├── ai-improvement/        # Main package
-│   │   ├── src/              # Source code
-│   │   ├── dist/             # Compiled output
-│   │   └── package.json      # Package configuration
-│   │
-│   └── config/               # Shared configurations
-│       ├── eslint/           # ESLint base config
-│       └── typescript/       # TypeScript base config
-│
-├── package.json              # Root package.json
-├── turbo.json               # Turborepo configuration
-└── .nvmrc                   # Node.js version lock
-```
+### Staging Deployment
+
+The staging deployment is automatically triggered when:
+- Code is pushed to the `main` branch
+- Manual trigger through GitHub Actions UI
+
+The workflow:
+1. Checks out the code
+2. Sets up Node.js environment
+3. Installs dependencies
+4. Builds the application
+5. Deploys to Firebase Staging environment
+
+**Staging URL**: [stg-uv-1-2025](https://stg-uv-1-2025.web.app/)
+
+To manually trigger a staging deployment:
+1. Go to your GitHub repository
+2. Navigate to "Actions" tab
+3. Select "Deploy to Staging" workflow
+4. Click "Run workflow"
+5. Select the branch (default: main)
+6. Click "Run workflow"
+
+### Production Deployment
+
+Production deployments are triggered by creating a release tag with a specific date-time format.
+
+#### How to Deploy to Production:
+
+1. Go to your GitHub repository
+2. Click on "Releases" in the right sidebar
+3. Click "Create a new release"
+4. Create a new tag using the format: `MM-DD-YYYY-HH-MM`
+   - Example: `03-14-2024-15-30` for March 14, 2024, 15:30
+5. Set the release title (optional)
+6. Click "Publish release"
+
+The workflow will:
+1. Validate the tag format
+2. Build the application
+3. Deploy to Firebase Production environment
+
+**Production URL**: [uv-1-2025](https://uv-1-2025.web.app/)
 
 ## 🛠 Configuration Details
 

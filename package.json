@@ -9,15 +9,20 @@
     "format": "turbo format",
     "format:fix": "turbo format:fix",
     "type-check": "turbo type-check",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "deploy:staging": "turbo deploy:staging",
+    "deploy:production": "turbo deploy:production"
   },
   "workspaces": [
     "packages/*"
   ],
   "devDependencies": {
-    "turbo": "^2.4.2",
     "dotenv": "^16.0.0",
-    "husky": "^8.0.0"
+    "husky": "^8.0.0",
+    "turbo": "^2.4.2"
   },
-  "packageManager": "yarn@1.22.19"
+  "packageManager": "yarn@1.22.19",
+  "dependencies": {
+    "firebase": "^11.3.1"
+  }
 }

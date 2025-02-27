@@ -30,6 +30,12 @@
     },
     "type-check": {
       "outputs": []
+    },
+    "deploy:staging": {
+      "cache": false
+    },
+    "deploy:production": {
+      "cache": false
     }
   }
 }

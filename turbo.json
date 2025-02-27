@@ -15,6 +15,9 @@
     "lint": {
       "outputs": []
     },
+    "format": {
+      "outputs": []
+    },
     "lint:fix": {
       "outputs": []
     },

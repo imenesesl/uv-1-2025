@@ -12,6 +12,9 @@ on:
       id:
         required: true
         type: string
+      expires:
+        required: false
+        type: string
     secrets:
       GPT_API_KEY:
         required: true
@@ -73,3 +76,4 @@ jobs:
           projectId: ${{ secrets.FIREBASE_PROJECT_ID }}
           channelId: ${{ inputs.id }}
           target: ${{ inputs.target }}
+          expires: ${{ inputs.expires }}

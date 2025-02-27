@@ -6,7 +6,8 @@ async function main() {
     const inputText = process.argv.slice(2).join(' ');
     
     if (!inputText) {
-      throw new Error('Please provide text to improve. Usage: yarn dev "your text here"');
+      console.warn('Please provide text to improve. Usage: yarn dev "your text here"');
+      return
     }
 
     console.log('Original text:\n', inputText);

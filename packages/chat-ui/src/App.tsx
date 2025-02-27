@@ -1,9 +1,17 @@
-import './App.css';
+import styles from './App.module.css';
+
+type MessageProps = {
+  text: string;
+};
+
+const Message = ({ text }: MessageProps) => {
+  return <h1>{text}</h1>;
+};
 
 const App = () => {
   return (
-    <div className="content">
-      <h1>Hey there! 🚀</h1>
+    <div className={styles.content}>
+      <Message text="Hi there!" />
     </div>
   );
 };

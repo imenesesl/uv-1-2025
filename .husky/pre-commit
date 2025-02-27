@@ -1,0 +1,44 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Colors for output
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+# Check if we're on main/master branch
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+if [ "$BRANCH" = "main" ] || [ "$BRANCH" = "master" ]; then
+  echo "${RED}🚫 You can't commit directly to $BRANCH branch${NC}"
+  exit 1
+fi
+
+echo "${YELLOW}Running pre-commit checks...${NC}"
+
+# Run format:fix
+echo "${YELLOW}Running format:fix...${NC}"
+if yarn format:fix; then
+  echo "${GREEN}✔ Format:fix completed${NC}"
+else
+  echo "${RED}❌ Format:fix failed${NC}"
+  exit 1
+fi
+
+# Run lint:fix
+echo "${YELLOW}Running lint:fix...${NC}"
+if yarn lint:fix; then
+  echo "${GREEN}✔ Lint:fix completed${NC}"
+else
+  echo "${RED}❌ Lint:fix failed${NC}"
+  exit 1
+fi
+
+# Check if there are changes after formatting/linting
+if ! git diff --quiet; then
+  echo "${YELLOW}Adding formatted/linted files to staging...${NC}"
+  git add .
+  echo "${GREEN}✔ Files added to staging${NC}"
+fi
+
+echo "${GREEN}✔ All pre-commit checks passed!${NC}" 

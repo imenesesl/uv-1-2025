@@ -17,3 +17,12 @@ jobs:
       id: preview-${{ github.event.inputs.branch || github.ref_name }}
       expires: 1d
     secrets: inherit
+
+  show-preview-url:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display Preview URL
+        run: |
+          echo "# 🚀 Preview Deployment" >> $GITHUB_STEP_SUMMARY
+          echo "Preview environment is ready at: ${{ needs.deploy.outputs.preview_url }}" >> $GITHUB_STEP_SUMMARY

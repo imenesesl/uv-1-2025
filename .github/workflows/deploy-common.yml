@@ -36,11 +36,17 @@ on:
         required: true
       FIREBASE_MEASUREMENT_ID:
         required: true
+    outputs:
+      preview_url:
+        description: "Preview deployment URL"
+        value: "${{ jobs.deploy.outputs.preview_url }}"
 
 jobs:
   deploy:
     name: Deploy to Firebase ${{ inputs.environment }}
     runs-on: ubuntu-latest
+    outputs:
+      preview_url: ${{ steps.deploy_firebase.outputs.details_url }}
     
     steps:
       - name: Checkout repository
@@ -69,6 +75,7 @@ jobs:
           FIREBASE_MEASUREMENT_ID: ${{ secrets.FIREBASE_MEASUREMENT_ID }}
 
       - name: Deploy to Firebase
+        id: deploy_firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.PERSONAL_GITHUB_TOKEN }}'

@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Check if we're on main/master branch
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+if [ "$BRANCH" = "main" ] || [ "$BRANCH" = "master" ]; then
+  echo "You can't commit directly to main/master branch"
+  exit 1
+fi
+
+# Run format and lint fixes
+yarn format:fix
+yarn lint:fix
+
+# Add the formatted/linted files back to staging
+git add . 

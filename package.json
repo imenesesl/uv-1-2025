@@ -8,14 +8,16 @@
     "lint:fix": "turbo lint:fix",
     "format": "turbo format",
     "format:fix": "turbo format:fix",
-    "type-check": "turbo type-check"
+    "type-check": "turbo type-check",
+    "prepare": "husky install"
   },
   "workspaces": [
     "packages/*"
   ],
   "devDependencies": {
     "turbo": "^2.4.2",
-    "dotenv": "^16.0.0"
+    "dotenv": "^16.0.0",
+    "husky": "^8.0.0"
   },
   "packageManager": "yarn@1.22.19"
 }

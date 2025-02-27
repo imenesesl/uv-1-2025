@@ -11,8 +11,8 @@ export default function App() {
 
   return (
     <div className={styles.content}>
-      <h1>Current Date</h1>
-      <p>{currentDate}</p>
+      <h1>Hi there!</h1>
+      <p>The current date and time is: {currentDate}</p>
     </div>
   );
 }

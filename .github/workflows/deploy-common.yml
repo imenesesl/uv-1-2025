@@ -36,11 +36,17 @@ on:
         required: true
       FIREBASE_MEASUREMENT_ID:
         required: true
+    outputs:
+      details_url:
+        description: "Preview URL for the deployment"
+        value: ${{ jobs.deploy.outputs.details_url }}
 
 jobs:
   deploy:
     name: Deploy to Firebase ${{ inputs.environment }}
     runs-on: ubuntu-latest
+    outputs:
+      details_url: ${{ steps.deploy_firebase.outputs.details_url }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -81,4 +87,4 @@ jobs:
       - name: Debug Output
         run: |
           echo "Full Deploy Output:"
-          echo "${{ toJSON(steps.deploy_firebase.outputs) }}"
+          echo "${{ toJSON(steps.deploy_firebase.outputs.details_url) }}"

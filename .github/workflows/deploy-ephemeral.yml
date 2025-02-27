@@ -16,14 +16,5 @@ jobs:
       target: staging
       id: preview-${{ github.event.inputs.branch || github.ref_name }}
       expires: 1d
+      project_id: uv-1-2025
     secrets: inherit
-
-  show-preview-url:
-    needs: deploy
-    runs-on: ubuntu-latest
-    steps:
-      - name: Display Preview URL
-        run: |
-          echo "# 🚀 Preview Deployment" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "🔗 [Open Preview](${{ needs.deploy.outputs.details_url }})" >> $GITHUB_STEP_SUMMARY

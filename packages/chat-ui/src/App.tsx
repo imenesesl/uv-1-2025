@@ -13,6 +13,10 @@ export default function App() {
     <div className={styles.content}>
       <h1>Hi there!</h1>
       <p>The current date and time is: {currentDate}</p>
+      <p>
+        Hey! Im Luis Meneses, a software engineer with a passion for building
+        products that help people.
+      </p>
     </div>
   );
 }

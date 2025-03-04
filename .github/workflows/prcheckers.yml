@@ -1,0 +1,14 @@
+name: workflow to analize changes
+
+on:
+    pull_request:
+        types: [opened, reopened, synchronize]
+
+jobs:
+    analyze:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: say hello
+              run: echo "hello"
+

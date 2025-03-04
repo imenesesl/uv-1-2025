@@ -24,6 +24,8 @@ jobs:
                 cache: "yarn"
             - name: install dependences
               run: yarn 
+            - name: type check
+              run: yarn type-check
               
               
 

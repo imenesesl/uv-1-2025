@@ -17,6 +17,10 @@ export default function App() {
         Hey! Im Luis Meneses, a software engineer with a passion for building
         products that help people.
       </p>
+      <p>
+        Hey! Im Daniel Arteaga, a student of software engineer with a passion
+        for building products that help people.
+      </p>
     </div>
   );
 }

@@ -22,6 +22,8 @@ jobs:
               with:
                 node-version-file: ".nvmrc"
                 cache: "yarn"
+            - name: install dependences
+              run: yarn 
               
               
 

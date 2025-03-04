@@ -1,0 +1,46 @@
+name: workflow to analize changes
+
+on:
+    pull_request:
+        types: [opened, reopened, synchronize]
+
+jobs:
+    analyze:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: say hello
+              run: echo "hello"
+            - name: provide context
+              uses: actions/checkout@v4
+            - name: check node version
+              run: node --version
+            - name: check yarn version
+              run: yarn --version
+            - name: set up nodejs
+              uses: actions/setup-node@v4
+              with:
+                node-version-file: ".nvmrc"
+                cache: "yarn"
+            - name: install dependences
+              run: yarn 
+            - name: type check
+              run: yarn type-check
+    
+    python:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: set up git
+              uses: actions/checkout@v4
+            - name: set up python
+              uses: actions/setup-python@v5
+              with:
+                python-version: "3.13"
+            - name: run script
+              run: python fetch.py
+                
+              
+              
+              
+

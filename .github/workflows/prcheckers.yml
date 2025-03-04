@@ -26,6 +26,21 @@ jobs:
               run: yarn 
             - name: type check
               run: yarn type-check
+    
+    python:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: set up git
+              uses: actions/checkout@v4
+            - name: set up python
+              uses: actions/setup-python@v5
+              with:
+                python-version: "3.13"
+            - name: run script
+              run: python fetch.py
+                
+              
               
               
 

@@ -15,5 +15,8 @@ jobs:
               uses: actions/checkout@v4
             - name: check node version
               run: node --version
+            - name: check yarn version
+              run: yarn --version
+              
               
 

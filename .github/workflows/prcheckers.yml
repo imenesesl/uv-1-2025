@@ -17,6 +17,11 @@ jobs:
               run: node --version
             - name: check yarn version
               run: yarn --version
+            - name: set up nodejs
+              uses: actions/setup-node@v4
+              with:
+                node-version-file: ".nvmrc"
+                cache: "yarn"
               
               
 
